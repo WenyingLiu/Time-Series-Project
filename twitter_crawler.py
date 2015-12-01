@@ -21,9 +21,12 @@ class StdOutListener(StreamListener):
     def on_data(self, data):
 
         jsonData = json.loads(data)
-        # Filter out retweets.
-        if not jsonData['retweeted'] and 'RT @' not in jsonData['text']:
-            print jsonData['id_str'], jsonData['text'].strip(), datetime.strptime(jsonData['created_at'], '%a %b %d %H:%M:%S +0000 %Y'), '\n'
+        try:
+            encodeText = jsonData['text'].encode('unicode-escape')
+            if not jsonData['retweeted'] and 'RT @' not in encodeText:
+                print jsonData['id_str'], encodeText.strip(), datetime.strptime(jsonData['created_at'], '%a %b %d %H:%M:%S +0000 %Y'), '\n'
+        except:
+            pass
 
         return True
 
