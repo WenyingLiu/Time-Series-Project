@@ -51,6 +51,7 @@ def main():
     api = tweepy.API(auth)
 
     UID = pickle.load(open('/Users/wenying/Downloads/officialAccountID.pkl', 'rb'))
+    missUser = []
 
     for user_id in UID:
         try:
@@ -61,11 +62,10 @@ def main():
         except:
             print 'Miss user {}'.format(user_id)
             time.sleep(60*4)
-            print 'Retry user{}'.format(user_id)
-            outtweets = get_user_tweets(user_id)
-            with open('../data/tweets_{}.pkl'.format(user_id), 'wb') as f:
-                pickle.dump(outtweets, f)
+            missUser.append(user_id)
 
+    with open('../data/missUser.pkl', 'wb') as f:
+        pickle.dump(missUser, f)
 if __name__ == '__main__':
     main()
 
