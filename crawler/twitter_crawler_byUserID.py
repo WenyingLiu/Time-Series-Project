@@ -10,7 +10,7 @@ DJ_list = ['$MMM', '$AXP', '$AAPL', '$BA', '$CAT', '$CVX', '$CSCO', '$KO', '$DIS
            '$XOM', '$GE', '$GS', '$HD', '$IBM', '$INTC', '$JNJ', '$JPM', '$MCD', '$MRK',
            '$MSFT', '$NKE', '$PFE', '$PG', '$TRV', '$UTX', '$UNH', '$VZ', '$V', '$WMT']
 
-def get_user_tweets(user_id):
+def get_user_tweets(user_id, api):
 
     #initialize a list to hold all the tweepy Tweets
     alltweets = []
@@ -55,7 +55,7 @@ def main():
 
     for user_id in UID:
         try:
-            outtweets = get_user_tweets(user_id)
+            outtweets = get_user_tweets(user_id, api)
             with open('../data/tweets_{}.pkl'.format(user_id), 'wb') as f:
                 pickle.dump(outtweets, f)
             print 'user {} finished \n'.format(user_id)
