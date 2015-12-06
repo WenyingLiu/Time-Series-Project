@@ -66,12 +66,12 @@ def main():
 
     with open('../data/missUser.pkl', 'wb') as f:
         pickle.dump(missUser, f)
+        
 if __name__ == '__main__':
     main()
 
 
 
-# In[ ]:
 
 
 
