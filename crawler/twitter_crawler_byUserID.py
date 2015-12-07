@@ -39,10 +39,10 @@ def get_user_tweets(user_id, api):
 
 def main():
 
-    access_token = "1859020754-z4VWrGSK8qByArkmX7bQckExZejED6TrBSzahxQ"
-    access_token_secret = "AD564rnEfAg4hgqgoscgdm7fVSDNivnPKxhrqbK0WzQaK"
-    consumer_key = "h6RwHlLa0f8qyC6FAPJunyfyO"
-    consumer_secret = "uFD8z5IbAYQiJDoLzMICZKtHLvxc4gRrE0CkzBRGEUlrTxi9EP"
+    access_token = "Your access token"
+    access_token_secret = "Your acess token secret"
+    consumer_key = "Your consumer key"
+    consumer_secret = "Your consumer secret"
 
     #Twitter only allows access to a users most recent 3240 tweets with this method
     #authorize twitter, initialize tweepy
