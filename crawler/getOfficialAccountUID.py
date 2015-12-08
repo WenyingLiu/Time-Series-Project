@@ -23,14 +23,16 @@ def main():
     for n in officialAccountName['Twitter Handler'][-300:]:
         try:
             UID = api.get_user(screen_name=n).id_str
-            officialAccountUID.append(UID)
+            nFollowers = api.get_user(screen_name=n).followers_count
+            officialAccountUID.append((UID, nFollowers))
             print 'Find {}\'s UID'.format(n)
         except:
             print 'Rate Limit Error, ', 'miss user {}. Sleep for 15 mins'.format(n)
             time.sleep(15*60)
             print 'Retry {}'.format(n)
             UID = api.get_user(screen_name=n).id_str
-            officialAccountUID.append(UID)
+            nFollowers = api.get_user(screen_name=n).followers_count
+            officialAccountUID.append((UID, nFollowers))
 
     with open('officialAccountID.pkl', 'wb') as f:
         pickle.dump(officialAccountUID, f)
