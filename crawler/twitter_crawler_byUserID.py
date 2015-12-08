@@ -10,7 +10,7 @@ DJ_list = ['$MMM', '$AXP', '$AAPL', '$BA', '$CAT', '$CVX', '$CSCO', '$KO', '$DIS
            '$XOM', '$GE', '$GS', '$HD', '$IBM', '$INTC', '$JNJ', '$JPM', '$MCD', '$MRK',
            '$MSFT', '$NKE', '$PFE', '$PG', '$TRV', '$UTX', '$UNH', '$VZ', '$V', '$WMT']
 
-def get_user_tweets(user_id):
+def get_user_tweets(user_id, api):
 
     #initialize a list to hold all the tweepy Tweets
     alltweets = []
@@ -33,7 +33,7 @@ def get_user_tweets(user_id):
         print "...%s related tweets downloaded so far" % (len(alltweets))
 
     #transform the tweepy tweets into a 2D array that will populate the csv
-    outtweets = [[tweet.user.id_str, tweet.text.encode("unicode-escape"), tweet.created_at] for tweet in alltweets]
+    outtweets = [[tweet.user.id_str, tweet.text.encode("unicode-escape"), tweet.retweet_count , tweet.created_at] for tweet in alltweets]
 
     return outtweets
 
@@ -55,7 +55,7 @@ def main():
 
     for user_id in UID:
         try:
-            outtweets = get_user_tweets(user_id)
+            outtweets = get_user_tweets(user_id, api)
             with open('../data/tweets_{}.pkl'.format(user_id), 'wb') as f:
                 pickle.dump(outtweets, f)
             print 'user {} finished \n'.format(user_id)
@@ -66,12 +66,12 @@ def main():
 
     with open('../data/missUser.pkl', 'wb') as f:
         pickle.dump(missUser, f)
+
 if __name__ == '__main__':
     main()
 
 
 
-# In[ ]:
 
 
 
