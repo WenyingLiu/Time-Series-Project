@@ -60,6 +60,7 @@ def main():
                 pickle.dump(outtweets, f)
             print 'user {} finished \n'.format(user_id)
         except:
+            raise
             print 'Miss user {}'.format(user_id)
             time.sleep(60*4)
             missUser.append(user_id)
