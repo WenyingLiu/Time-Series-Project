@@ -33,7 +33,7 @@ def get_user_tweets(user_id, api):
         print "...%s related tweets downloaded so far" % (len(alltweets))
 
     #transform the tweepy tweets into a 2D array that will populate the csv
-    outtweets = [[tweet.user.id_str, tweet.text.encode("unicode-escape"), tweet.created_at] for tweet in alltweets]
+    outtweets = [[tweet.user.id_str, tweet.text.encode("unicode-escape"), tweet.retweet_count, tweet.created_at] for tweet in alltweets]
 
     return outtweets
 
