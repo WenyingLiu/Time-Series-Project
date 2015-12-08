@@ -18,6 +18,7 @@ def main():
     api = tweepy.API(auth)
 
     officialAccountUID = []
+    missUsername = []
     officialAccountName = pd.read_csv('/Users/wenying/Downloads/stock id.csv')
 
     for n in officialAccountName['Twitter Handler'][-300:]:
@@ -29,14 +30,19 @@ def main():
         except:
             print 'Rate Limit Error, ', 'miss user {}. Sleep for 15 mins'.format(n)
             time.sleep(15*60)
-            print 'Retry {}'.format(n)
-            UID = api.get_user(screen_name=n).id_str
-            nFollowers = api.get_user(screen_name=n).followers_count
-            officialAccountUID.append((UID, nFollowers))
+            missUsername.append(n)
+            #print 'Retry {}'.format(n)
+            #UID = api.get_user(screen_name=n).id_str
+            #nFollowers = api.get_user(screen_name=n).followers_count
+            #officialAccountUID.append((UID, nFollowers))
 
     with open('officialAccountID.pkl', 'wb') as f:
         pickle.dump(officialAccountUID, f)
-
+        
+    with open('missUsername.pkl', 'wb') as f:
+        pickle.dump(missUsername, f)
+        
+        
 if __name__ == '__main__':
     main()
 
