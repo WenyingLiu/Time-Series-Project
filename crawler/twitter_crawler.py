@@ -5,10 +5,10 @@ from datetime import datetime
 import json
 
 # Variables that contains the user credentials to access Twitter API
-access_token = "1604502054-DF0gfKMskzRDEdywKxoMlaEfOJnQhxy2DkdgfFM"
-access_token_secret = "FCoSIVkT9Ilcw2svpfxXtopLTXRIb0feUCh9dAPvPr9X5"
-consumer_key = "qZqEK9TSVCC9ZZVUlhTRT01Cz"
-consumer_secret = "r12WukMn1Znn1sDUNfZd8oIU41gAsaxVRvEKV4ykfdBuOqgi2C"
+access_token = "Your access token"
+access_token_secret = "Your acess token secret"
+consumer_key = "Your consumer key"
+consumer_secret = "Your consumer secret"
 
 DJ_list = ['$MMM', '$AXP', '$AAPL', '$BA', '$CAT', '$CVX', '$CSCO', '$KO', '$DIS', '$DD',
                '$XOM', '$GE', '$GS', '$HD', '$IBM', '$INTC', '$JNJ', '$JPM', '$MCD', '$MRK',

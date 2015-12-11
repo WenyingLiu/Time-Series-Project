@@ -33,16 +33,20 @@ def get_user_tweets(user_id, api):
         print "...%s related tweets downloaded so far" % (len(alltweets))
 
     #transform the tweepy tweets into a 2D array that will populate the csv
+<<<<<<< HEAD
     outtweets = [[tweet.user.id_str, tweet.text.encode("unicode-escape"), tweet.retweet_count , tweet.created_at] for tweet in alltweets]
+=======
+    outtweets = [[tweet.user.id_str, tweet.text.encode("unicode-escape"), tweet.retweet_count, tweet.created_at] for tweet in alltweets]
+>>>>>>> cc6f67fccd2d4d2fce217165ccbccb78855c0916
 
     return outtweets
 
 def main():
 
-    access_token = "1859020754-z4VWrGSK8qByArkmX7bQckExZejED6TrBSzahxQ"
-    access_token_secret = "AD564rnEfAg4hgqgoscgdm7fVSDNivnPKxhrqbK0WzQaK"
-    consumer_key = "h6RwHlLa0f8qyC6FAPJunyfyO"
-    consumer_secret = "uFD8z5IbAYQiJDoLzMICZKtHLvxc4gRrE0CkzBRGEUlrTxi9EP"
+    access_token = "Your access token"
+    access_token_secret = "Your acess token secret"
+    consumer_key = "Your consumer key"
+    consumer_secret = "Your consumer secret"
 
     #Twitter only allows access to a users most recent 3240 tweets with this method
     #authorize twitter, initialize tweepy
@@ -66,7 +70,11 @@ def main():
 
     with open('../data/missUser.pkl', 'wb') as f:
         pickle.dump(missUser, f)
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> cc6f67fccd2d4d2fce217165ccbccb78855c0916
 if __name__ == '__main__':
     main()
 
